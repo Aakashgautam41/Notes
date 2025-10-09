@@ -10,18 +10,18 @@ It is a mutual exclusion lock, meaning it controls access to a **critical sectio
 
 ---
 
-## ==Key Features==
+## Key Features
 
 The name breaks down into its two main properties:
 
-1. **==Lock:==** It is a mutual exclusion mechanism, meaning threads must call the `lock()` method before accessing shared resources and the **`unlock()`** method afterward, typically in a **`finally`** block to guarantee release.
+1. **Lock:** It is a mutual exclusion mechanism, meaning threads must call the `lock()` method before accessing shared resources and the **`unlock()`** method afterward, typically in a **`finally`** block to guarantee release.
     
-2. **==Reentrant:==** This is the most defining characteristic. It means a thread that has successfully acquired the lock can **acquire it again multiple times** without blocking itself. An internal count (hold count) tracks how many times the owning thread has locked the resource. The lock is only fully released when the thread has called `unlock()` the same number of times it called `lock()`. 1This prevents a single thread from deadlocking itself when a method that holds a lock calls another method that tries to acquire the same lock.
+2. **Reentrant:** This is the most defining characteristic. It means a thread that has successfully acquired the lock can **acquire it again multiple times** without blocking itself. An internal count (hold count) tracks how many times the owning thread has locked the resource. The lock is only fully released when the thread has called `unlock()` the same number of times it called `lock()`. 1This prevents a single thread from deadlocking itself when a method that holds a lock calls another method that tries to acquire the same lock.
     
 
 ---
 
-## ==Why Use It Over `synchronized`==?
+## Why Use It Over `synchronized`?
 
 While the `synchronized` keyword is simpler to use, a `ReentrantLock` provides extended capabilities, giving you more control over the locking process:
 

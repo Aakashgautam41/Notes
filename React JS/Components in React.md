@@ -5,7 +5,7 @@ tags:
 ---
 ## 📌 What are Components in React?
 
-- ==A **component** in React is a **reusable, independent piece of UI**.==
+- A **component** in React is a **reusable, independent piece of UI**.
     
 - You can think of it as a **JavaScript function** (or class) that:
     
@@ -20,7 +20,7 @@ tags:
 
 ## 🛠 Types of Components in React
 
-### ==1. **Functional Components** (Modern & Preferred)==
+### 1. **Functional Components** (Modern & Preferred)
 
 - Simple JavaScript functions.
     
@@ -40,7 +40,7 @@ function Welcome(props) {
 
 ---
 
-### ==2. **Class Components** (Older, but still used in legacy projects)==
+### 2. **Class Components** (Older, but still used in legacy projects)
 
 - Defined as ES6 classes.
     
@@ -59,7 +59,7 @@ class Welcome extends React.Component {
 
 ---
 
-## 🔑 ==Key Points About Components==
+## 🔑 Key Points About Components
 
 1. **Reusable** → You can use the same component in multiple places.
     
@@ -72,7 +72,7 @@ class Welcome extends React.Component {
 
 ---
 
-## 📊 ==Example: Breaking UI into Components==
+## 📊 Example: Breaking UI into Components
 
 Imagine you’re building a **Profile Card**.
 
@@ -92,7 +92,7 @@ This makes code cleaner, easier to maintain, and **reusable**.
 ---
 
 ✅ **In short:**  
-==Components are the **building blocks of React apps**. Each component is like a Lego brick — small, independent, and reusable. Together, they build your full UI.==
+Components are the **building blocks of React apps**. Each component is like a Lego brick — small, independent, and reusable. Together, they build your full UI.
 
 ---
 
@@ -100,7 +100,7 @@ This makes code cleaner, easier to maintain, and **reusable**.
 
 ---
 
-## ==1. **Stateless Components**==
+## 1. **Stateless Components**
 
 - These are **presentational components**.
     
@@ -129,7 +129,7 @@ function Greeting(props) {
 
 ---
 
-## ==2. **Stateful Components**==
+## 2. **Stateful Components**
 
 - These components **hold and manage state** (data that changes over time).
     
@@ -138,7 +138,7 @@ function Greeting(props) {
 - Can be implemented using **useState (Hooks)** in functional components or `this.state` in class components.
     
 
-### ==Example (Functional with Hooks):==
+### Example (Functional with Hooks):
 
 ```jsx
 import React, { useState } from "react";
@@ -162,7 +162,7 @@ function Counter() {
 
 ---
 
-## 🗂️ ==Key Differences (Interview Style)==
+## 🗂️ Key Differences (Interview Style)
 
 |Feature|Stateless Component|Stateful Component|
 |---|---|---|
@@ -176,7 +176,7 @@ function Counter() {
 
 ## ✅ How to Answer in Interview
 
-> ==“In React, stateless components are those that don’t manage internal state — they only rely on props and are mostly used for UI rendering. Stateful components, on the other hand, maintain and update their own state, making them suitable for dynamic and interactive features. For example, a `Greeting` component that just displays a name is stateless, while a `Counter` component that increments a number is stateful.”==
+> “In React, stateless components are those that don’t manage internal state — they only rely on props and are mostly used for UI rendering. Stateful components, on the other hand, maintain and update their own state, making them suitable for dynamic and interactive features. For example, a `Greeting` component that just displays a name is stateless, while a `Counter` component that increments a number is stateful.”
 
 ---
 
@@ -189,7 +189,7 @@ Since React **Hooks** (from v16.8), we mostly write **functional components**. A
 
 ---
 
-## ==1. **Controlled Components**==
+## 1. **Controlled Components**
 
 - A **controlled component** is one where **form data is controlled by React state**.
     
@@ -233,7 +233,7 @@ function ControlledForm() {
 
 ---
 
-## ==2. **Uncontrolled Components**==
+## 2. **Uncontrolled Components**
 
 - An **uncontrolled component** is one where form data is handled by the **DOM itself**, not React.
     
@@ -273,7 +273,7 @@ function UncontrolledForm() {
 
 ---
 
-## 🗂️ ==Key Differences (Interview Style)==
+## 🗂️ Key Differences (Interview Style)
 
 |Feature|Controlled Component|Uncontrolled Component|
 |---|---|---|
@@ -288,7 +288,7 @@ function UncontrolledForm() {
 
 ## ✅ How to Answer in Interview
 
-> ==**“A controlled component is one where the form inputs are tied to React state, so React has complete control over the data. For example, a login form where inputs are stored in state. An uncontrolled component, on the other hand, relies on the DOM to manage its state, and we usually access values via refs. Controlled components are preferred when we need validation, dynamic rendering, or instant feedback, while uncontrolled ones are simpler and require less boilerplate.”**==
+> **“A controlled component is one where the form inputs are tied to React state, so React has complete control over the data. For example, a login form where inputs are stored in state. An uncontrolled component, on the other hand, relies on the DOM to manage its state, and we usually access values via refs. Controlled components are preferred when we need validation, dynamic rendering, or instant feedback, while uncontrolled ones are simpler and require less boilerplate.”**
 
 ---
 

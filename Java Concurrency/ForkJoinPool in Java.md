@@ -177,7 +177,7 @@ class PrintTask extends RecursiveAction {
 
 # 📌 Interview-Style Answer
 
-> ==**ForkJoinPool** is a special `ExecutorService` introduced in Java 7 that implements the **work-stealing algorithm**. It’s optimized for **divide-and-conquer tasks**, where large problems are recursively split into smaller tasks (`fork`), executed in parallel, and then combined (`join`). Each worker has its own deque of tasks, and idle workers **steal tasks** from others to balance workload. It’s the engine behind Java’s `parallelStream()`.==
+> **ForkJoinPool** is a special `ExecutorService` introduced in Java 7 that implements the **work-stealing algorithm**. It’s optimized for **divide-and-conquer tasks**, where large problems are recursively split into smaller tasks (`fork`), executed in parallel, and then combined (`join`). Each worker has its own deque of tasks, and idle workers **steal tasks** from others to balance workload. It’s the engine behind Java’s `parallelStream()`.
 
 ---
 

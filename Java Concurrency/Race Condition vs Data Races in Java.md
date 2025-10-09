@@ -5,17 +5,17 @@ tags:
 ---
 ---
 
-## ==I. Data Races==
+## I. Data Races
 
 A **data race** is a condition that occurs when multiple threads are accessing a **shared variable** at the same time without any synchronization or coordination, and **at least one of those threads is writing** to that variable [1, 2]. This often leads to a possibility of memory corruption [3].
 
-### ==A. Data Races in Java (Integers)==
+### A. Data Races in Java (Integers)
 
 *   **Java Guarantee:** The Java Language Specification (JLS), which all JVMs must implement, **mandates that any writes to variables of type integer should be Atomic** [4].
 *   **Result:** If two threads attempt to update a shared integer variable simultaneously (e.g., Thread 1 setting X to 3, Thread 2 setting X to 7), the JVM will ensure that only one thread is able to set the value at a time [3, 4].
 *   **Outcome:** Because of the JLS mandate, memory corruptions are generally avoided when threads simultaneously update integers [4].
 
-### ==B. Data Race Exceptions: Longs and Doubles (Word Tearing)==
+### B. Data Race Exceptions: Longs and Doubles (Word Tearing)
 
 *   **Lack of Guarantee:** JLS **does not mandate Atomic rights of `long` or `double`** [4].
 *   **Structure:** `Longs` and `doubles` are 64 bits and can theoretically be considered as two different variables, each of size 32 bits [4].
@@ -23,22 +23,22 @@ A **data race** is a condition that occurs when multiple threads are accessing a
 *   **Corruption:** This can result in **memory corruption**, where the final value is a weird combination of the first 32 bits of one number and the last 32 bits of another number [4].
 *   **Read/Write Scenario:** This problem can occur even if only one thread is writing and another is reading [1]. If a writing thread has only updated the first 32 bits, a reading thread might read the first 32 bits of the updated value and the last 32 bits of the *old* value, resulting in the thread reading a **corrupt value** [1].
 
-### ==C. Practical Relevance of Data Races in Java==
+### C. Practical Relevance of Data Races in Java
 
 *   Data race is **practically not an issue in Java in most of the cases** because the JVM provides certain guarantees to avoid them [2].
 
 ---
 
-## ==II. Race Conditions==
+## II. Race Conditions
 
 A **race condition** occurs when the **output of a certain computation depends on the relative ordering of the threads** [5]. Multiple threads access a shared variable, and the resulting value will be different based on the execution order of the threads [2].
 
-### ==A. Nature of Race Conditions==
+### A. Nature of Race Conditions
 
 *   **Interleaving:** The problem arises when **multiple instructions that are supposed to be executed together (atomically) are actually not run together**; instead, they are interleaved with similar instructions from other threads [5].
 *   **Racing:** Threads are "racing to perform a few instructions," and the final output depends on which thread runs first compared to the others [5].
 
-### ==B. Situation 1: Check and Update==
+### B. Situation 1: Check and Update
 
 This scenario involves checking a state and then updating it based on that check.
 
@@ -47,7 +47,7 @@ This scenario involves checking a state and then updating it based on that check
 *   **Race Scenario:** If thread scheduling is not guaranteed, Thread 1 may run only the `if` statement (finding the book absent) [5]. Then Thread 2 runs its own `if` statement (also finding the book absent) [5]. Both threads then proceed to loan out the same book to two different users, breaking the program's correctness [5].
 *   **Note on Concurrent Structures:** Even if the underlying data structure is a `ConcurrentHashMap`, the race condition can still occur if the check and set operations remain two separate instructions that can be interleaved [7, 8].
 
-### ==C. Situation 2: Read and Update==
+### C. Situation 2: Read and Update
 
 This scenario involves performing an operation that internally requires multiple steps to read, modify, and write a value.
 
@@ -58,7 +58,7 @@ This scenario involves performing an operation that internally requires multiple
     3.  Write the updated value of `count` [8].
 *   **Race Scenario:** If two threads execute `count++` simultaneously, both threads may read the initial value (zero) [9]. Both will update the value to one, and subsequently write one back, resulting in a final value of 1 when the expected correct result is 2 [9].
 
-### ==D. Solutions to Race Conditions==
+### D. Solutions to Race Conditions
 
 To ensure that sets of instructions are executed atomically (together):
 
@@ -68,7 +68,7 @@ To ensure that sets of instructions are executed atomically (together):
 
 ---
 
-## ==III. Summary and Contrast==
+## III. Summary and Contrast
 
 | Feature | Data Race | Race Condition |
 | :--- | :--- | :--- |

@@ -6,7 +6,7 @@ tags:
 
 ---
 
-## ==Java ExecutorService and Thread Pools==
+## Java ExecutorService and Thread Pools
 
 ### I. Running Tasks Asynchronously (Traditional Threads)
 
