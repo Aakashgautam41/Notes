@@ -1,0 +1,19 @@
+# Build and IDE files
+target/
+.idea/
+*.iml
+*.class
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+
+# Spring Boot config
+src/main/resources/application.properties
+src/main/resources/application-dev.properties
+src/main/resources/application-prod.properties
+
+# Environment files
+.env
